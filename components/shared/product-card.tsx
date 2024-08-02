@@ -1,10 +1,10 @@
+/* eslint-disable @next/next/no-img-element */
 import React from 'react';
 import { Button } from '@/components/ui/button';
 import { Plus } from 'lucide-react';
 import { cn } from '@/lib/utils';
 import { Title } from './title';
 // import { CountButton } from './count-button';
-import Image from 'next/image';
 
 interface Props {
   name: string;
@@ -12,13 +12,14 @@ interface Props {
   count?: number;
   imageUrl: string;
   className?: string;
+  id: number;
 }
 
 export const ProductCard: React.FC<Props> = ({ name, price, count, imageUrl, className }) => {
   return (
     <div className={cn(className)}>
       <div className="flex justify-center p-6 bg-secondary rounded-lg h-[260px]">
-        <Image className="w-[215px] h-[215px]" src={imageUrl} alt="Logo" />
+        <img className="w-[215px] h-[215px]" src={imageUrl} alt="Logo" />
       </div>
       <Title text={name} size="sm" className="mb-1 mt-3 font-bold" />
       <p className="text-sm text-gray-400">

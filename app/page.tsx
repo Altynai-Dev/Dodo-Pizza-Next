@@ -1,4 +1,4 @@
-import { Title, Container, TopBar, Filters } from "@/components/shared";
+import { Title, Container, TopBar, Filters, ProductsGroupList } from "@/components/shared";
 
 export default function Home() {
   return (
@@ -15,7 +15,124 @@ export default function Home() {
           </div>
 
           <div className="flex-1">
-            <div className="flex flex-col gap-16">Cb</div>
+            <div className="flex flex-col gap-16">
+              <ProductsGroupList title="Пиццы" items={[
+                {
+                  id: 1,
+                  name: "Чизбургер-пицца",
+                  imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9kcddKS0WwWwW46oFqUef1aXVTZWpyotcyA&s",
+                  price: 600,
+                  items: [{price: 600}]
+                },
+                {
+                  id: 2,
+                  name: "Чизбургер-пицца",
+                  imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9kcddKS0WwWwW46oFqUef1aXVTZWpyotcyA&s",
+                  price: 600,
+                  items: [{price: 600}]
+                },
+                {
+                  id: 3,
+                  name: "Чизбургер-пицца",
+                  imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9kcddKS0WwWwW46oFqUef1aXVTZWpyotcyA&s",
+                  price: 600,
+                  items: [{price: 600}]
+                },
+                {
+                  id: 4,
+                  name: "Чизбургер-пицца",
+                  imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9kcddKS0WwWwW46oFqUef1aXVTZWpyotcyA&s",
+                  price: 600,
+                  items: [{price: 600}]
+                },
+                {
+                  id: 5,
+                  name: "Чизбургер-пицца",
+                  imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9kcddKS0WwWwW46oFqUef1aXVTZWpyotcyA&s",
+                  price: 600,
+                  items: [{price: 600}]
+                },
+                {
+                  id: 6,
+                  name: "Чизбургер-пицца",
+                  imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9kcddKS0WwWwW46oFqUef1aXVTZWpyotcyA&s",
+                  price: 600,
+                  items: [{price: 600}]
+                },
+                {
+                  id: 7,
+                  name: "Чизбургер-пицца",
+                  imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9kcddKS0WwWwW46oFqUef1aXVTZWpyotcyA&s",
+                  price: 600,
+                  items: [{price: 600}]
+                },
+                {
+                  id: 8,
+                  name: "Чизбургер-пицца",
+                  imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9kcddKS0WwWwW46oFqUef1aXVTZWpyotcyA&s",
+                  price: 600,
+                  items: [{price: 600}]
+                }
+              ]} categoryId={1} />
+              <ProductsGroupList title="Комбо" items={[
+                {
+                  id: 1,
+                  name: "Чизбургер-пицца",
+                  imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9kcddKS0WwWwW46oFqUef1aXVTZWpyotcyA&s",
+                  price: 600,
+                  items: [{price: 600}]
+                },
+                {
+                  id: 2,
+                  name: "Чизбургер-пицца",
+                  imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9kcddKS0WwWwW46oFqUef1aXVTZWpyotcyA&s",
+                  price: 600,
+                  items: [{price: 600}]
+                },
+                {
+                  id: 3,
+                  name: "Чизбургер-пицца",
+                  imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9kcddKS0WwWwW46oFqUef1aXVTZWpyotcyA&s",
+                  price: 600,
+                  items: [{price: 600}]
+                },
+                {
+                  id: 4,
+                  name: "Чизбургер-пицца",
+                  imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9kcddKS0WwWwW46oFqUef1aXVTZWpyotcyA&s",
+                  price: 600,
+                  items: [{price: 600}]
+                },
+                {
+                  id: 5,
+                  name: "Чизбургер-пицца",
+                  imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9kcddKS0WwWwW46oFqUef1aXVTZWpyotcyA&s",
+                  price: 600,
+                  items: [{price: 600}]
+                },
+                {
+                  id: 6,
+                  name: "Чизбургер-пицца",
+                  imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9kcddKS0WwWwW46oFqUef1aXVTZWpyotcyA&s",
+                  price: 600,
+                  items: [{price: 600}]
+                },
+                {
+                  id: 7,
+                  name: "Чизбургер-пицца",
+                  imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9kcddKS0WwWwW46oFqUef1aXVTZWpyotcyA&s",
+                  price: 600,
+                  items: [{price: 600}]
+                },
+                {
+                  id: 8,
+                  name: "Чизбургер-пицца",
+                  imageUrl: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS9kcddKS0WwWwW46oFqUef1aXVTZWpyotcyA&s",
+                  price: 600,
+                  items: [{price: 600}]
+                }
+              ]} categoryId={2} />
+            </div>
           </div>
         </div>
       </Container>
