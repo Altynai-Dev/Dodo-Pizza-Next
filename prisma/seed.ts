@@ -78,7 +78,7 @@ async function up(){
             imageUrl: "https://media.dodostatic.net/image/r:233x233/11EF02C883A425BD913D8AE9E223A518.avif",
             categoryId: 1,
             ingredients: {
-                connect: ingredients.slice(10, 20)
+                connect: ingredients.slice(10, 15)
             }
         }
     });
@@ -118,12 +118,41 @@ async function up(){
             generateProductItem({productId: 16}),
             generateProductItem({productId: 17}),
         ]
+    });
+
+    await prisma.cart.createMany({
+        data: [
+            {
+                userId: 1,
+                totalAmount: 0,
+                token: '11111'
+            },
+            {
+                userId: 2,
+                totalAmount: 0,
+                token: '22333'
+            }
+        ]
+    });
+
+    await prisma.cartItem.create({
+        data: {
+            productItemId: 1,
+            cartId: 1,
+            quantity: 2,
+            ingredients: {
+                connect: [{id: 1}, {id: 2}, {id: 3}]
+            }
+        }
     })
 }
 
 async function down(){
     await prisma.$executeRaw`TRUNCATE TABLE "User" RESTART IDENTITY CASCADE`,
     await prisma.$executeRaw`TRUNCATE TABLE "Category" RESTART IDENTITY CASCADE`,
+    await prisma.$executeRaw`TRUNCATE TABLE "Cart" RESTART IDENTITY CASCADE`,
+    await prisma.$executeRaw`TRUNCATE TABLE "CartItem" RESTART IDENTITY CASCADE`,
+    await prisma.$executeRaw`TRUNCATE TABLE "Ingredient" RESTART IDENTITY CASCADE`,
     await prisma.$executeRaw`TRUNCATE TABLE "Product" RESTART IDENTITY CASCADE`,
     await prisma.$executeRaw`TRUNCATE TABLE "ProductItem" RESTART IDENTITY CASCADE`
 }
