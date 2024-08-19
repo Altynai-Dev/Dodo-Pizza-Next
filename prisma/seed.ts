@@ -13,11 +13,6 @@ const generateProductItem = ({productId, pizzaType, size} : {productId: number; 
       price: randomNumber(198, 600),
       pizzaType,
       size,
-    //   carbs: randomNumber(10, 30),
-    //   fats: randomNumber(5, 15),
-    //   kcal: randomNumber(180, 300),
-    //   proteins: randomNumber(20, 45),
-    //   weight: randomNumber(400, 650),
     } as Prisma.ProductItemUncheckedCreateInput
   };
 
@@ -100,23 +95,6 @@ async function up(){
             generateProductItem({productId: pizza3.id, pizzaType: 2, size: 30}),
             generateProductItem({productId: pizza3.id, pizzaType: 2, size: 40}),
 
-            generateProductItem({productId: 1}),
-            generateProductItem({productId: 2}),
-            generateProductItem({productId: 3}),
-            generateProductItem({productId: 4}),
-            generateProductItem({productId: 5}),
-            generateProductItem({productId: 6}),
-            generateProductItem({productId: 7}),
-            generateProductItem({productId: 8}),
-            generateProductItem({productId: 9}),
-            generateProductItem({productId: 10}),
-            generateProductItem({productId: 11}),
-            generateProductItem({productId: 12}),
-            generateProductItem({productId: 13}),
-            generateProductItem({productId: 14}),
-            generateProductItem({productId: 15}),
-            generateProductItem({productId: 16}),
-            generateProductItem({productId: 17}),
         ]
     });
 
