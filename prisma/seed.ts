@@ -1,5 +1,5 @@
 import { Prisma } from "@prisma/client";
-import { categories, ingredients, products } from "./constants";
+import { categories, _ingredients, products } from "./constants";
 import { prisma } from "./prisma-client";
 import {hashSync} from "bcrypt"
 
@@ -39,7 +39,7 @@ async function up(){
         data: categories
     })
     await prisma.ingredient.createMany({
-        data: ingredients
+        data: _ingredients
     })
     await prisma.product.createMany({
         data: products
@@ -51,7 +51,7 @@ async function up(){
             imageUrl: "https://media.dodostatic.net/image/r:233x233/11EE7D5FFC0EE4D5A53D2067EF1E84FA.avif",
             categoryId: 1,
             ingredients: {
-                connect: ingredients.slice(0, 5)
+                connect: _ingredients.slice(0, 5)
             }
         }
     });
@@ -62,7 +62,7 @@ async function up(){
             imageUrl: "https://media.dodostatic.net/image/r:233x233/11EE7D600BC7B9F1B6888AF021E5C198.avif",
             categoryId: 1,
             ingredients: {
-                connect: ingredients.slice(5, 10)
+                connect: _ingredients.slice(5, 10)
             }
         }
     })
@@ -73,7 +73,7 @@ async function up(){
             imageUrl: "https://media.dodostatic.net/image/r:233x233/11EF02C883A425BD913D8AE9E223A518.avif",
             categoryId: 1,
             ingredients: {
-                connect: ingredients.slice(10, 15)
+                connect: _ingredients.slice(10, 15)
             }
         }
     });

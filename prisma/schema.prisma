@@ -29,6 +29,11 @@ model User {
     updatedAt DateTime @updatedAt
 }
 
+model Category {
+    id       Int       @id @default(autoincrement())
+    name     String    @unique
+    products Product[]
+}
 model Product {
     id Int @id @default(autoincrement())
 
@@ -45,13 +50,6 @@ model Product {
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
 }
-
-model Category {
-    id       Int       @id @default(autoincrement())
-    name     String    @unique
-    products Product[]
-}
-
 model ProductItem {
     id Int @id @default(autoincrement())
 
@@ -64,6 +62,8 @@ model ProductItem {
     //у вариации может быть один продукт
     product   Product @relation(fields: [productId], references: [id])
     productId Int
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
 }
 
 model Ingredient {
@@ -81,7 +81,8 @@ model Ingredient {
 
 model Cart {
     id Int @id @default(autoincrement())
-
+    //у одной корзины может быть только один пользователь
+    //можем привязать корзину к неавторизованному пользователю
     user   User?      @relation(fields: [userId], references: [id])
     userId Int?       @unique
     //у корзины мб множество товаров
@@ -104,9 +105,12 @@ model CartItem {
     cart          Cart        @relation(fields: [cartId], references: [id])
     cartId        Int
 
-    quantity Int
+    quantity Int @default(1)
 
     ingredients Ingredient[]
+
+    createdAt DateTime @default(now())
+    updatedAt DateTime @updatedAt
 }
 
 model Order {

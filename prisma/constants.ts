@@ -16,7 +16,7 @@ export const categories = [
     },
 ]
 
-export const ingredients = [
+export const _ingredients = [
     {
         id: 1,
         name: 'Сырный бортик',
