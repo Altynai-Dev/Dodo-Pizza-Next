@@ -7,20 +7,21 @@ import { cn } from '@/shared/lib/utils';
 interface Props {
     imageUrl: string;
     name: string;
-    items?: any[];
-    onClickAdd?: VoidFunction;
+    price: number;
+    onSubmit?: VoidFunction;
+    loading?: boolean;
     className?: string;
 }
+// Форма выбора продукта
 
 export const ChooseProductForm: React.FC<Props> = ({ 
-    name, 
-    items, 
     imageUrl,
-    onClickAdd,
+    name, 
+    price,
+    onSubmit,
+    loading,
     className
  }) => {
-  const textDetails = '30 см, традиционное тесто 30';
-  const totalPrice = 350;
   return (
     
     <div className={cn('flex flex-1', className)}>
@@ -30,9 +31,8 @@ export const ChooseProductForm: React.FC<Props> = ({
 
       <div className='w-[490px] bg-[#f7f6f5] p-7'>
         <Title text={name} size="md" className='font-extrabold mb-1' />
-        <p className='text-gray-400 mb-10'>{textDetails}</p>
-        <Button className='h-[55px] px-10 text-base rounded-[18px] w-full'>
-        Добавить в корзину за {totalPrice} Р
+        <Button loading={loading} onClick={() => onSubmit?.()} className='h-[55px] px-10 text-base rounded-[18px] w-full'>
+        Добавить в корзину за {price} Р
       </Button>
       </div>
       
