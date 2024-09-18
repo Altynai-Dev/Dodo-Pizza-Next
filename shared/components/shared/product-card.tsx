@@ -5,18 +5,19 @@ import { Title } from './title';
 import Link from 'next/link';
 import { Button } from '../ui';
 import { cn } from '@/shared/lib/utils';
+import { Ingredient } from '@prisma/client';
 // import { CountButton } from './count-button';
 
 interface Props {
+  id: number;
   name: string;
   price: number;
-  count?: number;
   imageUrl: string;
+  ingredients: Ingredient[];
   className?: string;
-  id: number;
 }
 
-export const ProductCard: React.FC<Props> = ({ name, price, count, imageUrl, className, id }) => {
+export const ProductCard: React.FC<Props> = ({ name, price, imageUrl, className, id, ingredients }) => {
   return (
     <div className={cn(className)}>
       <Link href={`/product/${id}`}>
@@ -25,7 +26,8 @@ export const ProductCard: React.FC<Props> = ({ name, price, count, imageUrl, cla
       </div>
       <Title text={name} size="sm" className="mb-1 mt-3 font-bold" />
       <p className="text-sm text-gray-400">
-        Цыпленок, моцарелла, сыры чеддер и пармезан, сырный соус, томаты, соус альфредо, чеснок
+       {ingredients.map((ingredient) => ingredient.name
+       ).join(', ')}
       </p>
 
       <div className="flex justify-between items-center mt-4">

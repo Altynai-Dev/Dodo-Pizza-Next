@@ -6,6 +6,7 @@ export type CartStateItem = {
     name: string;
     imageUrl: string;
     price: number;
+    disaled?: boolean;
     pizzaSize?: number | null;
     pizzaType?: number | null;
     ingredients: Array<{name: string; price: number}>;
@@ -23,11 +24,13 @@ export const getCartDetails = (data: CartDTO): ReturnProps =>{
         price: calcCartItemTotalPrice(item),
         pizzaSize: item.productItem.size,
         pizzaType: item.productItem.pizzaType,
+        disaled: false,
         ingredients: item.ingredients.map((ingredient) => ({
             name: ingredient.name,
             price: ingredient.price
         }))
-    }));
+    })) as CartStateItem[];
+
     return {
         items,
         totalAmount: data.totalAmount,
