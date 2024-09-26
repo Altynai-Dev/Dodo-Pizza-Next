@@ -3,7 +3,7 @@ import { WhiteBlock } from '../white-block';
 import { FormInput } from '../form-components';
 
 interface Props {
-className?: string;
+  className?: string;
 }
 
 export const CheckoutPersonalInfo: React.FC<Props> = ({ className }) => {

@@ -131,7 +131,7 @@ model Order {
     email    String
     address  String
     phone    String
-    comment  String
+    comment  String?
 
     createdAt DateTime @default(now())
     updatedAt DateTime @updatedAt
