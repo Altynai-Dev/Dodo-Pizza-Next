@@ -1,9 +1,12 @@
 'use server';
 
 import { prisma } from '@/prisma/prisma-client';
+import { PayOrderTemplate } from '@/shared/components';
 import {CheckoutFormValues} from '@/shared/constants';
+import { sendEmail } from '@/shared/lib';
 import { OrderStatus } from '@prisma/client';
 import { cookies } from 'next/headers';
+import { useRouter } from 'next/navigation';
 
 export async function createOrder(data: CheckoutFormValues){
     try{
@@ -66,5 +69,13 @@ export async function createOrder(data: CheckoutFormValues){
                 cartId: userCart.id,
             }
         });
-    }catch(err){}
+
+        await sendEmail(data.email, 'Dodo Pizza Next / Оплатите заказ #' + order.id, PayOrderTemplate({
+            orderId: order.id,
+            totalAmount: order.totalAmount,
+            paymentUrl: 'https://resend.com/docs/send-with-nextjs'
+        }));
+    }catch(err){
+        console.log('[CreateOrder] Server error', err);
+    }
 }

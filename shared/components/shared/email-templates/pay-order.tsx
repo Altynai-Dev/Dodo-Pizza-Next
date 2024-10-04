@@ -1,12 +1,12 @@
 import React from 'react';
 
-interface EmailTemplateProps{
+interface Props{
     orderId: number;
     totalAmount: number;
     paymentUrl: string;
 }
 
-export const PayOrderTemplate: React.FC<EmailTemplateProps> = ({
+export const PayOrderTemplate: React.FC<Props> = ({
     orderId, totalAmount, paymentUrl
 }) => (
     <div>
